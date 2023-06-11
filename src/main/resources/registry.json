@@ -1,0 +1,49 @@
+{
+  "predict-nationality": {
+    "host": "https://api.nationalize.io",
+    "method": "get",
+    "headers": null,
+    "uri": "",
+    "max-concurrency": "5",
+    "parameters": [
+      {
+        "key": "name",
+        "value": "Samrat"
+      }
+    ]
+  },
+  "predict-gender": {
+    "host": "https://api.genderize.io",
+    "method": "get",
+    "headers": null,
+    "uri": "",
+    "max-concurrency": "6",
+    "parameters": [
+      {
+        "key": "name",
+        "value": "Samrat"
+      }
+    ]
+  },
+  "post-objects": {
+    "host": "https://api.restful-api.dev",
+    "method": "post",
+    "headers": null,
+    "uri": "/objects",
+    "max-concurrency": "4",
+    "parameters": [
+      {
+        "key": "name",
+        "value": "Macbook Pro"
+      },
+      {
+        "key": "year",
+        "value": "2022"
+      },
+      {
+        "key": "price",
+        "value": "2000"
+      }
+    ]
+  }
+}

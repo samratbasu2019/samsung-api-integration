@@ -1,0 +1,29 @@
+{
+  "predict-nationality": {
+    "parameters": [{
+      "key": "name",
+      "value": "Aaron"
+    }]
+  },
+  "predict-gender": {
+    "parameters": [{
+      "key": "name",
+      "value": "Deb"
+    }]
+  },
+  "post-objects": {
+    "parameters": [{
+      "key": "name",
+      "value": "iPhone 15"
+    },
+      {
+        "key": "year",
+        "value": "2032"
+      },
+      {
+        "key": "price",
+        "value": "2000"
+      }
+    ]
+  }
+}
