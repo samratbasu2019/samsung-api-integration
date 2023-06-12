@@ -63,7 +63,8 @@ public class ServiceEndpointImpl<T> implements ServiceEndpoint<T> {
         responseMap.put(POST_OBJECTS, postObjects.getParameters());
         LOG.info(EVENTS, "getSupportedParameters", "registry-values", predictNationality, predictGender, postObjects);
 
-        return Mono.just(responseMap);
+        return Mono.just(responseMap)
+                .onErrorResume(error -> Mono.error(error.getCause()));
     }
 
     /**
@@ -81,9 +82,9 @@ public class ServiceEndpointImpl<T> implements ServiceEndpoint<T> {
         Map<String, Object> responseMap = new HashMap<>();
 
         /* Parse request in order to get the contract and its parameters */
-        Contract predictNationalityRequest = mapper.convertValue(request.get(PREDICT_NATIONALITY), new TypeReference<>() {});
-        Contract predictGenderRequest = mapper.convertValue(request.get(PREDICT_GENDER), new TypeReference<>() {});
-        Contract postObjectRequest = mapper.convertValue(request.get(POST_OBJECTS), new TypeReference<>() {});
+        Contract predictNationalityRequest = Utils.getContractByKey(request, PREDICT_NATIONALITY);
+        Contract predictGenderRequest = Utils.getContractByKey(request, PREDICT_GENDER);
+        Contract postObjectRequest = Utils.getContractByKey(request, POST_OBJECTS);
 
         LOG.info(EVENTS, "invoke", "registry-values", predictNationality, predictGender, postObjects);
         LOG.info(EVENTS, "invoke", "inbound-request", predictNationalityRequest, predictGenderRequest, postObjectRequest);
