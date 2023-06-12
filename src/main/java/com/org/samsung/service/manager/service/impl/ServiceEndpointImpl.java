@@ -1,8 +1,5 @@
 package com.org.samsung.service.manager.service.impl;
 
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.org.samsung.service.manager.helper.ServiceEndpointsHelper;
 import com.org.samsung.service.manager.model.Contract;
 import com.org.samsung.service.manager.model.Registry;
@@ -73,7 +70,6 @@ public class ServiceEndpointImpl<T> implements ServiceEndpoint<T> {
      */
     @Override
     public Mono<?> invoke(final Map<String, Object> request) throws InvocationException, IOException {
-        ObjectMapper mapper = new ObjectMapper();
         /* Parse Registry in order to get the Registry details */
         Registry predictNationality = Utils.getRegistryByKey(PREDICT_NATIONALITY);
         Registry predictGender = Utils.getRegistryByKey(PREDICT_GENDER);
