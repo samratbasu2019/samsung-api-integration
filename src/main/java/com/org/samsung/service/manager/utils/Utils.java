@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-import static com.org.samsung.service.manager.utils.Constants.PREDICT_NATIONALITY;
 
 public class Utils {
     private Utils() {
